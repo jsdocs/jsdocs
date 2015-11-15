@@ -1,7 +1,7 @@
 {
   "name": "jsdoc",
   "version": "0.1.0-alpha.0",
-  "description": "Node.js app that powers JSDoc site",
+  "description": "node.js app that powers JSDocs",
   "main": "app.js",
   "engines": {
     "node": ">= 4.2"
@@ -25,10 +25,10 @@
     "object-assign": "^4.0.1",
     "redis": "^2.3.0",
     "rimraf": "^2.4.3",
-    "superagent": "^1.4.0"
+    "superagent": "^1.4.0",
+    "documentation": "^3.0.3"
   },
   "devDependencies": {
-    "documentation": "^3.0.3",
     "documentation-theme-default": "^1.0.0",
     "mocha": "^2.3.3",
     "standard": "^5.3.1"
