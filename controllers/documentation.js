@@ -5,26 +5,29 @@ const debug = require('debug')('jsdoc:controllers')
 
 module.exports = function *() {
   const params = this.params
-  params.branch = params.branch || 'master'
 
   // Fetch the package config
   const pkg = new Package(params)
   const pkgData = yield (done => pkg.fetch(done))
 
   var content = null
-  // TODO: verify if the cached file exists
+
+  // If the package was already fetched and up to date
   if (pkg.isUpdated()) {
     debug('package %s is up to date', pkg.key())
     content = yield (next => storage.getFile(pkg.filename(), next))
-  } else {
+  }
+
+  // Otherwise generate a fresh documentation
+  if (!pkg.isUpdated() || !content) {
     debug('generating documentation for package: %s', pkg.key())
     content = yield (next => generator.generate(pkg, next))
   }
 
+  // Render the view
   const data = {
     title: this.params.repository,
     content: content
   }
-
   yield this.render('documentation', data)
 }

@@ -29,7 +29,7 @@ router.param('provider', function *(provider, next) {
 // Register routes
 router.get('/', controllers.main)
 router.get('/about', controllers.about)
-router.get('/search', controllers.main)
+router.get('/search', controllers.search)
 router.get('/:provider/:organization/:repository', controllers.documentation)
 router.get('/:provider/:organization/:repository/v/:branch', controllers.documentation)
 

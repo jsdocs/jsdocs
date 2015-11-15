@@ -4,6 +4,11 @@ const env = process.env.NODE_ENV || 'development'
 const port = +process.env.PORT || 3000
 const DEBUG = env !== 'production'
 
+/**
+ * Server configuration params
+ * @exports {Object}
+ */
+
 exports = module.exports = {
   name: 'jsdoc',
   env: env,
@@ -49,7 +54,7 @@ exports.env = process.env.NODE_ENV || 'development'
  */
 
 exports.refreshTTL = exports.env === 'production'
-  ? 1000 * 60 * 60 * 24 * 7
+  ? 1000 * 60 * 60 * 24
   : -1
 
 /**
