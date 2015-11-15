@@ -20,6 +20,7 @@ exports.documentation = function *() {
   const pkgData = yield (done => pkg.fetch(done))
 
   var content = null
+  // TODO: verify if the cached file exists
   if (pkg.isUpdated()) {
     debug('package %s is up to date', pkg.key())
     content = yield (next => storage.getFile(pkg.filename(), next))
