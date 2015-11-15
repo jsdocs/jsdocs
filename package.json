@@ -3,6 +3,8 @@
   "version": "0.1.0-alpha.0",
   "description": "node.js app that powers JSDocs",
   "main": "app.js",
+  "license": "MIT",
+  "homepage": "https://github.com/jsdocs/jsdocs",
   "engines": {
     "node": ">= 4.2"
   },
