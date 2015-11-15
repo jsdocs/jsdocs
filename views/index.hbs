@@ -1,11 +1,9 @@
 <div class="container">
   <div class="jumbotron">
     <h2>Search for JavaScript packages</h2>
-    <form>
+    <form action="/search" role="search">
       <div class="input-group">
-        <form action="/search" role="search">
-          <input class="form-control" name="q" autofocus="autofocus" value="" placeholder="Search for package by name or organization" type="text">
-        </form>
+        <input class="form-control" name="q" autofocus="autofocus" value="" placeholder="Search for package by name or organization" type="text">
         <span class="input-group-btn">
           <button class="btn btn-default" type="submit">Search</button>
         </span>
