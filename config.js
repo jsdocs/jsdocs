@@ -4,7 +4,7 @@ const env = process.env.NODE_ENV || 'development'
 const port = +process.env.PORT || 3000
 const DEBUG = env !== 'production'
 
-module.exports = {
+exports = module.exports = {
   name: 'jsdoc',
   env: env,
   port: port,
@@ -19,7 +19,10 @@ module.exports = {
     partialsDir: 'views/partials',
     layoutsDir: 'views/layouts',
     defaultLayout: 'main',
-    data: { env: env, version: version }
+    data: {
+      env: env,
+      version: version
+    }
   },
 
   error: {
@@ -32,3 +35,29 @@ module.exports = {
     }
   }
 }
+
+/**
+ * Current runtime environment
+ * @property {String} env
+ */
+
+exports.env = process.env.NODE_ENV || 'development'
+
+/**
+ * Defines the maximum package refresh TTL
+ * @property {Number} refreshTTL
+ */
+
+exports.refreshTTL = exports.env === 'production'
+  ? 1000 * 60 * 60 * 24 * 7
+  : -1
+
+/**
+ * Define storage layer configuration
+ * @property {Object} storage
+ */
+
+exports.storage = {
+  bucket: 'jsdocs-storage'
+}
+

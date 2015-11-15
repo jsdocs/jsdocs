@@ -4,7 +4,7 @@ const Router = require('koa-router')
 const config = require('./config')
 const debug = require('debug')('jsdoc')
 const providers = require('./lib/providers')
-const version = require('./package.json').version
+const controllers = require('./controllers')
 
 app.env = config.env
 app.name = config.name
@@ -16,7 +16,6 @@ app.use(handlebars(config.handlebars))
 
 // Configure the router
 const router = new Router()
-const siteController = require('./controllers')
 
 // Param validator
 router.param('provider', function *(provider, next) {
@@ -27,12 +26,12 @@ router.param('provider', function *(provider, next) {
   yield this.render('error', { message: 'Unsupported provider: ' + provider })
 })
 
-router.get('/', siteController.index)
-router.get('/about', siteController.index)
-router.get('/search', siteController.index)
-router.get('/packages', siteController.index)
-router.get('/:provider/:organization/:repository', siteController.documentation)
-router.get('/:provider/:organization/:repository/v/:branch', siteController.documentation)
+// Register routes
+router.get('/', controllers.main)
+router.get('/about', controllers.about)
+router.get('/search', controllers.main)
+router.get('/:provider/:organization/:repository', controllers.documentation)
+router.get('/:provider/:organization/:repository/v/:branch', controllers.documentation)
 
 app.use(router.middleware())
 
