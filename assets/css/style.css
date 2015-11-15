@@ -2,6 +2,10 @@
   width: 1170px;
 }
 
+.fr {
+  margin: 10px 0 10px 0;
+}
+
 .container {
   padding-right: 0px;
   padding-left: 0px;
