@@ -11,8 +11,8 @@
 }
 
 .container {
-  padding-right: 0px;
-  padding-left: 0px;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .block {
@@ -24,7 +24,7 @@
 }
 
 #toc {
-  margin: 10px 0 0 0px;
+  margin: 10px 0 0 0;
 }
 
 .bold {
@@ -44,7 +44,8 @@
   color: #222;
 }
 
-.container-small max-width: 58rem;
+.container-small {
+  max-width: 58rem;
   margin-left: auto;
   margin-right: auto;
 }
