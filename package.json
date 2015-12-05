@@ -4,13 +4,19 @@
   "description": "node.js app that powers JSDocs",
   "main": "app.js",
   "license": "MIT",
-  "homepage": "https://github.com/jsdocs/jsdocs",
+  "homepage": "http://jsdocs.herokuapp.com",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jsdocs/jsdocs.git"
+  },
   "engines": {
     "node": ">= 4.2"
   },
   "scripts": {
     "start": "node .",
-    "test": "standard ./lib"
+    "test": "standard ./lib",
+    "buildcss": "node-sass styles/concise.scss public/css/styles.css | postcss --use autoprefixer < public/css/styles.css -b \"last 2 versions\" | cssmin > public/css/styles.min.css",
+    "buildcss:watch": "watch \"npm run buildcss\" styles"
   },
   "dependencies": {
     "async": "^1.5.0",
@@ -31,8 +37,13 @@
     "documentation": "^3.0.3"
   },
   "devDependencies": {
+    "autoprefixer": "^6.1.2",
+    "cssmin": "^0.4.3",
     "documentation-theme-default": "^1.0.0",
     "mocha": "^2.3.3",
-    "standard": "^5.3.1"
+    "node-sass": "^3.4.2",
+    "postcss-cli": "^2.3.2",
+    "standard": "^5.3.1",
+    "watch": "^0.16.0"
   }
 }
