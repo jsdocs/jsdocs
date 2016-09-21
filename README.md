@@ -12,7 +12,7 @@ This node.js app is mostly powered by:
 - Koa
 - Redis
 - Handlebars
-- Bootstrap
+- ConciseCSS
 
 <!--
 ## Contributing
@@ -34,7 +34,7 @@ cd jsdocs && npm install
 
 Start the server:
 ```bash
-DEBUG=jsdoc:* npm start
+DEBUG=jsdoc:* npm run start:dev
 ```
 
 ## License
