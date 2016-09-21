@@ -1,3 +1,13 @@
+desc('Start Redis server.')
+task('redis', () => {
+  jake.exec('redis-server', {
+    printStdout: true,
+    printStderr: true
+  }, () => {
+    complete()
+  })
+})
+
 desc('Start Nodemon server.')
 task('nodemon', () => {
   jake.exec('nodemon .', {
@@ -40,6 +50,7 @@ task('concise:watch', () => {
 
 desc('Start the development services.')
 task('default', () => {
+  jake.Task['redis'].invoke();
   jake.Task['nodemon'].invoke();
   jake.Task['concise'].invoke();
   jake.Task['concise:watch'].invoke();
