@@ -15,8 +15,8 @@
   "scripts": {
     "start": "node .",
     "test": "standard ./lib",
-    "buildcss": "node-sass styles/concise.scss public/css/styles.css | postcss --use autoprefixer < public/css/styles.css -b \"last 2 versions\" | cssmin > public/css/styles.min.css",
-    "buildcss:watch": "watch \"npm run buildcss\" styles"
+    "concise": "concisecss compile styles/main.scss assets/css/main.css",
+    "concise:watch": "chokidar 'styles/**/*.scss' -c 'npm run concise'"
   },
   "dependencies": {
     "async": "^1.5.0",
@@ -37,13 +37,12 @@
     "documentation": "^3.0.3"
   },
   "devDependencies": {
-    "autoprefixer": "^6.1.2",
-    "cssmin": "^0.4.3",
+    "chokidar-cli": "^1.2.0",
+    "concise-cli": "^0.3.0",
+    "concise.css": "github:concisecss/concise.css#master",
+    "cssnano-cli": "^1.0.4",
     "documentation-theme-default": "^1.0.0",
     "mocha": "^2.3.3",
-    "node-sass": "^3.4.2",
-    "postcss-cli": "^2.3.2",
-    "standard": "^5.3.1",
-    "watch": "^0.16.0"
+    "standard": "^5.3.1"
   }
 }
