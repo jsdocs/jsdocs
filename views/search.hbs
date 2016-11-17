@@ -1,11 +1,9 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <h4>Search results for {{query}}</h4>
-      <ul class="list-unstyled">
-        {{#each results}}
-          <li><a href="{{this}}">{{this}}</a></li>
-        {{/each}}
-    </div>
-  </div>
-</div>
+<main container>
+  <h4>Search results for {{query}}</h4>
+
+  <ul>
+    {{#each results}}
+      <li><a href="{{this}}">{{this}}</a></li>
+    {{/each}}
+  </ul>
+</main>

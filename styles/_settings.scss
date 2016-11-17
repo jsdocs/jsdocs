@@ -4,25 +4,36 @@
 
 //
 // Base
-// ----
+// --------------------------------------------------
 
+// Font size for small devices
 $font-size: 16;
+
+// Font size for big devices
 $font-size-secondary: 18;
 
-// Font families
-$font-primary:   "Source Sans Pro", sans-serif;
-$font-secondary: "Source Sans Pro", serif;
-$font-mono:      "Consolas", monospace;
-$font-print:     "Georgia", "Times New Roman", "Times", serif;
+// Tracking
+$letter-spacing: 0.05em;
 
-// Automatic margins
+// Font families
+$font-primary: "Helvetica", "Arial", sans-serif;
+$font-secondary: "Helvetica", "Arial", sans-serif;
+$font-mono: "Consolas", monospace;
+$font-print-primary: "Georgia", "Times New Roman", "Times", serif;
+$font-print-secondary: "Georgia", "Times New Roman", "Times", serif;
+
+// Enable margins to all the elements
+// except the first one in each nesting level
 $automargin: true;
+
+// ^ How much margin for those elements
 $block-margin: 1lh;
 
 // Transition duration
 $transition-duration: 150ms;
 
 // Custom media queries
+// Use as @media (--medium) { … }
 @custom-media --extra-small (width <= 480px);
 @custom-media --small (width >= 480px);
 @custom-media --medium (width >= 768px);
@@ -32,44 +43,49 @@ $transition-duration: 150ms;
 @custom-media --only-medium (768px < width <= 980px);
 @custom-media --only-large (980px < width <= 1100px);
 
-// Spacing
+// Spacing variables
 $spacing-xs: 0.5lh;
 $spacing-s:  1lh;
 $spacing-m:  2lh;
 $spacing-l:  3lh;
 $spacing-xl: 4lh;
 
-
 //
 // Type Scale
-// -------------
+// --------------------------------------------------
 
 // Suggested ratios
 // Source: http://type-scale.com/
-$minor-second:     1.067;
-$major-second:     1.125;
-$minor-third:      1.200;
-$major-third:      1.250;
-$perfect-fourth:   1.333;
-$augmented-fourth: 1.414;
-$perfect-fifth:    1.500;
-$golden-ratio:     1.618;
+$_minor-second:     1.067;
+$_major-second:     1.125;
+$_minor-third:      1.200;
+$_major-third:      1.250;
+$_perfect-fourth:   1.333;
+$_augmented-fourth: 1.414;
+$_perfect-fifth:    1.500;
+$_golden-ratio:     1.618;
 
 // Ratio for primary scale
-$scale-ratio: $major-third;
+$scale-ratio: $_minor-third;
 
 // Ratio for secondary scale
-$scale-ratio-secondary: $perfect-fifth;
+$scale-ratio-secondary: $_perfect-fourth;
 
 //
 // Grid
-// ----
+// --------------------------------------------------
+
+// Enable grid styles
+$enable-grid: true;
+
+// Enable x-*, sm-*, md-*, lg-*, xl-* columns and offsets
+$full-grid: false;
 
 // Max width for container
 $container-width: 1200px;
 
 // Gutter size
-$gutter: 2em;
+$gutter: 2rem;
 
 // Number of columns in a row
 $num-columns: 12;
@@ -77,65 +93,56 @@ $num-columns: 12;
 // Prefix for attributes
 $prefix: '';
 
+// Create columns and offsets above this breakpoint
 $breakpoint: --small;
-
 
 //
 // Color Palette
-// -------------
+// --------------------------------------------------
+// Use the getColor() function to use those values in
+// your stylesheets. Example: getColor(base, primary)
 
-// Colors
 $colors: (
   base: (
-    "primary":   #ffbf00,
-    "selection": #ecd4af,
-    "lines":     #e0e0e0
+    "primary":   #C65146,
+    "selection": #EBE1D3,
+    "lines":     #DCDCDC
   ),
 
   text: (
-    "primary":   #333,
-    "secondary": #999,
-    "tertiary":  #eee,
-    "heading":   #333,
-    "ui":        white
+    "primary":   #444,
+    "secondary": #777,
+    "heading":   #222,
+    "inverted":  white
   ),
 
   background: (
-    "dark":  #211b1b,
-    "light": #89bdb1,
+    "dark":  #32373d,
+    "light": #f5f5f5,
     "body":  white
   ),
 
   state: (
-    "muted":   #aaa,
-    "primary": #4591aa,
-    "success": #45ca69,
-    "warning": #ffb800,
-    "error":   #ca4829
+    "muted":   #eee,
+    "success": #10a887,
+    "warning": #F17F42,
+    "error":   #da3c3c
   ),
 
   blue: (
-    "darker":  #495b61,
-    "dark":    #447281,
-    "base":    #4591aa,
-    "light":   #5ab0cc,
-    "lighter": #74cbe8
+    "darker":  #1573b6,
+    "dark":    #1e80c6,
+    "base":    #2b90d9,
+    "light":   #3fa2e9,
+    "lighter": #4eb1f9
   ),
 
   green: (
-    "darker":  #3b6e6e,
-    "dark":    #3b8686,
-    "base":    #37a1a1,
-    "light":   #2dbaba,
-    "lighter": #69d1d1
-  ),
-
-  cream: (
-    "darker":  #c47858,
-    "dark":    #e29372,
-    "base":    #ecac91,
-    "light":   #f9c2ab,
-    "lighter": #fdd5c3
+    "darker":  #089073,
+    "dark":    #0b9d7d,
+    "base":    #10a887,
+    "light":   #1eb896,
+    "lighter": #28ceaa
   ),
 
   red: (

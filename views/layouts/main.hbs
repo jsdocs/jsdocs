@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-  {{> head}}
-</head>
-<body class='documentation'>
-  {{> nav}}
+  <head>
+    <meta charset='utf-8' />
 
-  <div class='container'>
+    {{#if options.name}}
+      <title>{{options.name}} - JS Docs</title>
+    {{else}}
+      <title>{{title}} - JS Docs</title>
+    {{/if}}
+
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <link href='/css/main.css' rel='stylesheet'>
+  </head>
+  <body>
+    <nav role="navigation" container>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+
+      <form id="x-search" action="/search" role="search">
+        <input id="x-search-query" type="text" name="q" placeholder="Search">
+      </form>
+    </nav>
+
     {{{@body}}}
-  </div>
 
-  {{> footer}}
-  {{> scripts}}
-</body>
+    <footer container>
+      <p>
+        <span>JSDocs {{@version}}</span>
+        <a href="https://github.com/jsdocs/jsdocs">Source</a>
+        <a href="https://github.com/jsdocs/jsdocs/issues/new">Report an issue</a>
+      </p>
+    </footer>
+
+    <script src='/js/main.js'></script>
+  </body>
 </html>
