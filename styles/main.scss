@@ -1,8 +1,8 @@
-// Concise Settings
+// Concise
 @import 'settings';
 
-// Concise Core
 @import '../node_modules/concise.css/concise';
+@import '../node_modules/concise-utils/concise-utils';
 
 // Base Styles
 @import 'base';

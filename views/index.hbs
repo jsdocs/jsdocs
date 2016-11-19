@@ -1,17 +1,21 @@
-<main container>
-  <h2>Search for JavaScript packages</h2>
+<main container="small">
+  <section class="_text-center _ptl _pbl">
+    <img class="_mbm" src="/images/logo.svg" width="100" alt="JS Docs">
 
-  <form action="/search" role="search">
-    <input name="q" autofocus="autofocus" value="" placeholder="Search package by name or organization" type="text">
-    <button type="submit">Search</button>
-  </form>
+    <h2>Search for JavaScript packages</h2>
+
+    <form action="/search" role="search" class="_m0 _mts _flex">
+      <input name="q" autofocus="autofocus" value="" placeholder="Search package by name or organization" type="text">
+      <button class="_mt0" type="submit">Search</button>
+    </form>
+  </section>
 
   <p>Welcome to JS Docs: a free documentation hosting service for the JavaScript community based on <a href="http://usejsdoc.org/">JSDoc</a> specification. Read the <a href="/about">About Page</a> for information about adding packages to JSDocs and more.</p>
 
   <section grid>
     <div column="6">
       <h4>Recently updated packages</h4>
-      <ul>
+      <ul class="_unlist">
         {{#each recent}}
           <li><a href="{{this}}">{{this}}</a></li>
         {{/each}}
@@ -20,7 +24,7 @@
 
     <div column="6">
       <h4>Useful resources</h4>
-      <ul>
+      <ul class="_unlist">
         <li><a href="http://usejsdoc.org">JSDoc specification</a></li>
         <li><a href="https://github.com/documentationjs/documentation/blob/master/docs/GETTING_STARTED.md">Guide for writting documentation</a></li>
         <li><a href="http://jsdocs.herokuapp.com/github.com/mapbox/mapbox-gl-js">Documentation demo</a></li>
